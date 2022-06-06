@@ -1,0 +1,2 @@
+rootProject.name = 'grpc-app'
+include 'common', 'client', 'server'

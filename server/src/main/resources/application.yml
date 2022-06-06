@@ -1,0 +1,7 @@
+spring:
+  application:
+    name: debs-grpc-server
+
+grpc:
+  server:
+    port: 9898
