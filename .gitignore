@@ -108,3 +108,4 @@ nbdist/
 
 /build/
 **/generated
+**/nano_second_stream/
