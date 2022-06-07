@@ -40,10 +40,10 @@ public class GrpcClientService {
         return empty.toString();
     }
 
-    public String nextBatch() {
+    public String nextBatch(long id) {
         final Batch batch = stub.nextBatch(
             Benchmark.newBuilder()
-                     .setId(1L)
+                     .setId(id)
                      .build()
         );
         return batch.toString();

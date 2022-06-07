@@ -3,6 +3,7 @@ package org.debs.group4.client.controller;
 import lombok.RequiredArgsConstructor;
 import org.debs.group4.client.service.GrpcClientService;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -23,9 +24,9 @@ public class GrpcClientController {
         return grpcClientService.startBenchmark();
     }
 
-    @GetMapping("/batch")
-    public String nextBatch() {
-        return grpcClientService.nextBatch();
+    @GetMapping("/batch/{id}")
+    public String nextBatch(@PathVariable("id") long id) {
+        return grpcClientService.nextBatch(id);
     }
 
     @GetMapping("/result/1")
