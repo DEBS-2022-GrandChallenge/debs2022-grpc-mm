@@ -22,12 +22,17 @@ public class GrpcServerService extends ChallengerGrpc.ChallengerImplBase {
 
     @Override
     public void createNewBenchmark(BenchmarkConfiguration request, StreamObserver<Benchmark> responseObserver) {
-        responseObserver.onNext(Benchmark.getDefaultInstance());
+        responseObserver.onNext(Benchmark.newBuilder()
+                                         .setId(0L)
+                                         .build());
         responseObserver.onCompleted();
     }
 
     @Override
     public void startBenchmark(Benchmark request, StreamObserver<Empty> responseObserver) {
+        log.warn("===========================================================================================");
+        log.warn("======================================== Start Benchmark ===================================");
+        log.warn("===========================================================================================");
         responseObserver.onNext(Empty.getDefaultInstance());
         responseObserver.onCompleted();
     }
@@ -62,6 +67,9 @@ public class GrpcServerService extends ChallengerGrpc.ChallengerImplBase {
 
     @Override
     public void endBenchmark(Benchmark request, StreamObserver<Empty> responseObserver) {
+        log.warn("===========================================================================================");
+        log.warn("======================================== End Benchmark ===================================");
+        log.warn("===========================================================================================");
         responseObserver.onNext(Empty.getDefaultInstance());
         responseObserver.onCompleted();
     }
